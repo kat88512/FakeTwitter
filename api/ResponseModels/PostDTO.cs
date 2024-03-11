@@ -1,4 +1,4 @@
-﻿namespace FakeTwitter.ResponseModels
+﻿namespace api.ResponseModels
 {
     public class PostDTO
     {

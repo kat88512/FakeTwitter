@@ -1,4 +1,4 @@
-﻿namespace FakeTwitter.RequestModels
+﻿namespace api.RequestModels
 {
     public class AddPostRequest
     {

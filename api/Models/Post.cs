@@ -1,4 +1,4 @@
-﻿namespace FakeTwitter.Models
+﻿namespace api.Models
 {
     public class Post
     {

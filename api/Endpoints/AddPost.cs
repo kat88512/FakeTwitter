@@ -1,9 +1,9 @@
-﻿using FakeTwitter.Models;
-using FakeTwitter.RequestModels;
-using FakeTwitter.ResponseModels;
+﻿using api.Models;
+using api.RequestModels;
+using api.ResponseModels;
 using FastEndpoints;
 
-namespace FakeTwitter.Endpoints
+namespace api.Endpoints
 {
     public class AddPost : Endpoint<AddPostRequest, PostDTO>
     {
