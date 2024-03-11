@@ -1,0 +1,15 @@
+﻿using FakeTwitter.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace api.Data
+{
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+
+        }
+
+        public DbSet<Post> Posts { get; set; }
+    }
+}
