@@ -3,16 +3,19 @@ using api.Models;
 using api.RequestModels;
 using api.ResponseModels;
 using FastEndpoints;
+using IMapper = AutoMapper.IMapper;
 
 namespace api.Endpoints
 {
     public class AddPost : Endpoint<AddPostRequest, PostDTO>
     {
         private readonly IRepository<Post, Guid> _postRepository;
+        private readonly IMapper _mapper;
 
-        public AddPost(IRepository<Post, Guid> postRepository)
+        public AddPost(IRepository<Post, Guid> postRepository, IMapper mapper)
         {
             _postRepository = postRepository;
+            _mapper = mapper;
         }
 
         public override void Configure()
@@ -25,16 +28,11 @@ namespace api.Endpoints
         {
             var post = new Post(req.Id, req.Text);
 
+            var postDTO = _mapper.Map<PostDTO>(post);
+
             await _postRepository.AddAsync(post);
 
-            await SendAsync(
-                new()
-                {
-                    Id = post.Id,
-                    DateCreated = post.DateCreated,
-                    Text = post.Text,
-                }
-            );
+            await SendAsync(postDTO);
         }
     }
 }
