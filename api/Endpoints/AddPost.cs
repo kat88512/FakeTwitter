@@ -9,12 +9,12 @@ namespace api.Endpoints
 {
     public class AddPost : Endpoint<AddPostRequest, PostDTO>
     {
-        private readonly IRepository<Post, Guid> _postRepository;
+        private readonly IRepository<Post, Guid> _posts;
         private readonly IMapper _mapper;
 
-        public AddPost(IRepository<Post, Guid> postRepository, IMapper mapper)
+        public AddPost(IRepository<Post, Guid> posts, IMapper mapper)
         {
-            _postRepository = postRepository;
+            _posts = posts;
             _mapper = mapper;
         }
 
@@ -28,11 +28,11 @@ namespace api.Endpoints
         {
             var post = new Post(req.Id, req.Text);
 
+            await _posts.AddAsync(post);
+
             var postDTO = _mapper.Map<PostDTO>(post);
 
-            await _postRepository.AddAsync(post);
-
-            await SendAsync(postDTO);
+            await SendAsync(postDTO, cancellation: ct);
         }
     }
 }
