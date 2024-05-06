@@ -2,7 +2,7 @@
 
 namespace api.Models
 {
-    public class Post : IAggregateRoot
+    public class Post : IAggregateRoot<Guid>
     {
         public Guid Id { get; private init; }
         public string Text { get; private set; }

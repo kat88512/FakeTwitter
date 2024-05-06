@@ -1,7 +1,7 @@
 ﻿namespace api.Interfaces
 {
     public interface IRepository<TEntity, TId>
-        where TEntity : IAggregateRoot
+        where TEntity : IAggregateRoot<TId>
         where TId : struct
     {
         Task AddAsync(TEntity entity);
