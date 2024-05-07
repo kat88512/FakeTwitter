@@ -16,16 +16,14 @@ namespace api.Repositories
             _dbSet = context.Set<TEntity>();
         }
 
-        public virtual async Task AddAsync(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             _context.Add(entity);
-            await _context.SaveChangesAsync();
         }
 
-        public virtual async Task DeleteAsync(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             _context.Remove(entity);
-            await _context.SaveChangesAsync();
         }
 
         public virtual async Task<TEntity?> GetByIdAsync(TId id)
@@ -33,10 +31,9 @@ namespace api.Repositories
             return await _dbSet.FirstOrDefaultAsync(p => p.Id.Equals(id));
         }
 
-        public virtual async Task UpdateAsync(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             _context.Update(entity);
-            await _context.SaveChangesAsync();
         }
     }
 }
