@@ -4,9 +4,9 @@
         where TEntity : IAggregateRoot<TId>
         where TId : struct
     {
-        void Add(TEntity entity);
-        void Delete(TEntity entity);
+        Task AddAsync(TEntity entity);
+        Task DeleteAsync(TEntity entity);
         Task<TEntity?> GetByIdAsync(TId id);
-        void Update(TEntity entity);
+        Task UpdateAsync(TEntity entity);
     }
 }

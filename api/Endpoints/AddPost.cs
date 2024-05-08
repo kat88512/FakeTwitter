@@ -1,5 +1,4 @@
-﻿using api.Data;
-using api.Interfaces;
+﻿using api.Interfaces;
 using api.Models;
 using api.RequestModels;
 using api.ResponseModels;
@@ -12,13 +11,11 @@ namespace api.Endpoints
     {
         private readonly IRepository<Post, Guid> _posts;
         private readonly IMapper _mapper;
-        private readonly ApplicationDbContext _context;
 
-        public AddPost(IRepository<Post, Guid> posts, IMapper mapper, ApplicationDbContext context)
+        public AddPost(IRepository<Post, Guid> posts, IMapper mapper)
         {
             _posts = posts;
             _mapper = mapper;
-            _context = context;
         }
 
         public override void Configure()
@@ -31,8 +28,7 @@ namespace api.Endpoints
         {
             var post = new Post(req.Id, req.Text);
 
-            _posts.Add(post);
-            await _context.SaveChangesAsync(ct);
+            await _posts.AddAsync(post);
 
             var postDTO = _mapper.Map<PostDTO>(post);
 
