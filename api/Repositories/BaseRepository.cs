@@ -1,0 +1,42 @@
+﻿using api.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
+namespace api.Repositories
+{
+    public abstract class BaseRepository<TEntity, TId> : IRepository<TEntity, TId>
+        where TEntity : class, IAggregateRoot<TId>
+        where TId : struct
+    {
+        protected readonly DbContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
+
+        public BaseRepository(DbContext context)
+        {
+            _context = context;
+            _dbSet = context.Set<TEntity>();
+        }
+
+        public virtual async Task AddAsync(TEntity entity)
+        {
+            _context.Add(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public virtual async Task DeleteAsync(TEntity entity)
+        {
+            _context.Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public virtual async Task<TEntity?> GetByIdAsync(TId id)
+        {
+            return await _dbSet.FirstOrDefaultAsync(p => p.Id.Equals(id));
+        }
+
+        public virtual async Task UpdateAsync(TEntity entity)
+        {
+            _context.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+    }
+}

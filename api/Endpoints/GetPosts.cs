@@ -1,10 +1,22 @@
-﻿using api.ResponseModels;
+﻿using api.Data;
+using api.ResponseModels;
 using FastEndpoints;
+using Microsoft.EntityFrameworkCore;
+using IMapper = AutoMapper.IMapper;
 
 namespace api.Endpoints
 {
-    public class GetPosts : EndpointWithoutRequest<List<PostDTO>>
+    public class GetPosts : EndpointWithoutRequest<IEnumerable<PostDTO>>
     {
+        private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
+
+        public GetPosts(ApplicationDbContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
+
         public override void Configure()
         {
             Get("/api/posts");
@@ -13,19 +25,11 @@ namespace api.Endpoints
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            await SendAsync(GetMockPosts(), cancellation: ct);
-        }
+            var posts = await _context.Posts.ToListAsync(cancellationToken: ct);
 
-        private List<PostDTO> GetMockPosts()
-        {
-            var mockPosts = new List<PostDTO>()
-            {
-                new() { Id = Guid.NewGuid(), DateCreated = new DateTime(2024, 3, 3), Text = "Text 1" },
-                new() { Id = Guid.NewGuid(), DateCreated = new DateTime(2024, 3, 4), Text = "Text 2" },
-                new() { Id = Guid.NewGuid(), DateCreated = new DateTime(2024, 3, 5), Text = "Text 3" },
-            };
+            var postsDTO = _mapper.Map<IEnumerable<PostDTO>>(posts);
 
-            return mockPosts;
+            await SendAsync(postsDTO, cancellation: ct);
         }
     }
 }

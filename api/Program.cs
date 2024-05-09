@@ -1,4 +1,7 @@
 using api.Data;
+using api.Interfaces;
+using api.Models;
+using api.Repositories;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<IRepository<Post, Guid>, PostRepository>();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 app.UseFastEndpoints().UseSwaggerGen();
