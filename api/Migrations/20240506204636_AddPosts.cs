@@ -17,7 +17,8 @@ namespace api.Migrations
                 maxLength: 280,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(max)"
+            );
         }
 
         /// <inheritdoc />
@@ -30,7 +31,8 @@ namespace api.Migrations
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(280)",
-                oldMaxLength: 280);
+                oldMaxLength: 280
+            );
         }
     }
 }
