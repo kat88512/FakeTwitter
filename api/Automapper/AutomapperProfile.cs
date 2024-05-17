@@ -9,6 +9,7 @@ namespace api.Config
         public AutomapperProfile()
         {
             CreateMap<Post, PostDTO>();
+            CreateMap<User, UserDTO>();
         }
     }
 }
