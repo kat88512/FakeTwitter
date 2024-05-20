@@ -13,7 +13,8 @@ namespace api.Migrations
             migrationBuilder.RenameColumn(
                 name: "Password",
                 table: "Users",
-                newName: "PasswordHash");
+                newName: "PasswordHash"
+            );
         }
 
         /// <inheritdoc />
@@ -22,7 +23,8 @@ namespace api.Migrations
             migrationBuilder.RenameColumn(
                 name: "PasswordHash",
                 table: "Users",
-                newName: "Password");
+                newName: "Password"
+            );
         }
     }
 }
