@@ -1,4 +1,5 @@
-﻿using api.Models;
+﻿using api.Configuration;
+using api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
@@ -38,6 +39,8 @@ namespace api.Data
                 b.HasKey(e => e.Id);
 
                 b.Property(e => e.Id).ValueGeneratedNever();
+
+                b.Property(e => e.EmailAddress).HasMaxLength(StringLengths.MediumString);
             });
         }
     }
