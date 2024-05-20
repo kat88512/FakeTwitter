@@ -1,5 +1,4 @@
-﻿using api.Configuration;
-using api.Models;
+﻿using api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
@@ -28,7 +27,7 @@ namespace api.Data
 
                 b.Property(e => e.Id).ValueGeneratedNever();
 
-                b.Property(e => e.Text).HasMaxLength(StringLengths.PostMaxLength);
+                b.Property(e => e.Text).HasMaxLength(Post.TextMaxLength);
             });
         }
 

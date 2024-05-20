@@ -1,5 +1,4 @@
-﻿using api.Configuration;
-using api.Data;
+﻿using api.Data;
 using api.Interfaces;
 using api.Models;
 using FastEndpoints;
@@ -30,7 +29,7 @@ namespace api.RequestModels
 
             RuleFor(u => u.Password)
                 .NotEmpty()
-                .MinimumLength(StringLengths.PasswordMinLength);
+                .MinimumLength(User.PasswordMinLength);
 
             RuleFor(u => u.Id)
                 .MustAsync(

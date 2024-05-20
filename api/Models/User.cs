@@ -4,6 +4,8 @@ namespace api.Models
 {
     public class User : IAggregateRoot<Guid>
     {
+        public const int PasswordMinLength = 10;
+
         public Guid Id { get; private init; }
         public string EmailAddress { get; private set; }
         public string PasswordHash { get; private set; }

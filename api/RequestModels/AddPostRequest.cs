@@ -1,5 +1,4 @@
-﻿using api.Configuration;
-using api.Interfaces;
+﻿using api.Interfaces;
 using api.Models;
 using FastEndpoints;
 using FluentValidation;
@@ -10,9 +9,7 @@ namespace api.RequestModels
     {
         public AddPostValidator()
         {
-            RuleFor(p => p.Text)
-                .NotEmpty()
-                .MaximumLength(StringLengths.PostMaxLength);
+            RuleFor(p => p.Text).NotEmpty().MaximumLength(Post.TextMaxLength);
 
             RuleFor(p => p.Id)
                 .MustAsync(
