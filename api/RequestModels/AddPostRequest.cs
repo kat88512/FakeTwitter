@@ -1,4 +1,6 @@
 ﻿using api.Configuration;
+using api.Interfaces;
+using api.Models;
 using FastEndpoints;
 using FluentValidation;
 
@@ -11,6 +13,17 @@ namespace api.RequestModels
             RuleFor(p => p.Text)
                 .NotEmpty()
                 .MaximumLength(StringLengths.PostMaxLength);
+
+            RuleFor(p => p.Id)
+                .MustAsync(
+                    async (id, ct) =>
+                    {
+                        var posts = Resolve<IRepository<Post, Guid>>();
+                        var exists = await posts.CheckIfExistsAsync(id);
+
+                        return !exists;
+                    }
+                );
         }
     }
 

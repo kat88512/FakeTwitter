@@ -1,5 +1,7 @@
 ﻿using api.Configuration;
 using api.Data;
+using api.Interfaces;
+using api.Models;
 using FastEndpoints;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +23,7 @@ namespace api.RequestModels
                             u => u.EmailAddress == email,
                             cancellationToken: ct
                         );
+
                         return !exists;
                     }
                 );
@@ -28,6 +31,17 @@ namespace api.RequestModels
             RuleFor(u => u.Password)
                 .NotEmpty()
                 .MinimumLength(StringLengths.PasswordMinLength);
+
+            RuleFor(u => u.Id)
+                .MustAsync(
+                    async (id, ct) =>
+                    {
+                        var users = Resolve<IRepository<User, Guid>>();
+                        var exists = await users.CheckIfExistsAsync(id);
+
+                        return !exists;
+                    }
+                );
         }
     };
 
