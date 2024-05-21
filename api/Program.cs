@@ -1,3 +1,4 @@
+global using FluentValidation;
 using api.Data;
 using api.Interfaces;
 using api.Models;
