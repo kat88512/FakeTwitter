@@ -1,3 +1,4 @@
+global using FluentValidation;
 using api.Data;
 using api.Interfaces;
 using api.Models;
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 builder.Services.AddScoped<IRepository<Post, Guid>, PostRepository>();
+builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

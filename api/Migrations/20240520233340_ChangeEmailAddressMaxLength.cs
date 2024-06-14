@@ -5,16 +5,16 @@
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPosts : Migration
+    public partial class ChangeEmailAddressMaxLength : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Text",
-                table: "Posts",
-                type: "nvarchar(280)",
-                maxLength: 280,
+                name: "EmailAddress",
+                table: "Users",
+                type: "nvarchar(500)",
+                maxLength: 500,
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)"
@@ -25,13 +25,13 @@ namespace api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Text",
-                table: "Posts",
+                name: "EmailAddress",
+                table: "Users",
                 type: "nvarchar(max)",
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(280)",
-                oldMaxLength: 280
+                oldType: "nvarchar(500)",
+                oldMaxLength: 500
             );
         }
     }

@@ -5,34 +5,32 @@
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPosts : Migration
+    public partial class RestrictPasswordHashLength : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Text",
-                table: "Posts",
-                type: "nvarchar(280)",
-                maxLength: 280,
+                name: "PasswordHash",
+                table: "Users",
+                type: "nvarchar(250)",
+                maxLength: 250,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)"
-            );
+                oldType: "nvarchar(max)");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Text",
-                table: "Posts",
+                name: "PasswordHash",
+                table: "Users",
                 type: "nvarchar(max)",
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(280)",
-                oldMaxLength: 280
-            );
+                oldType: "nvarchar(250)",
+                oldMaxLength: 250);
         }
     }
 }
