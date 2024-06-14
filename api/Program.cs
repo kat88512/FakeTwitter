@@ -22,4 +22,5 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 app.UseFastEndpoints().UseSwaggerGen();
+
 app.Run();
