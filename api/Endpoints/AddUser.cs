@@ -1,4 +1,5 @@
-﻿using api.Interfaces;
+﻿using api.Extensions;
+using api.Interfaces;
 using api.Models;
 using api.RequestModels;
 using api.ResponseModels;
@@ -27,7 +28,9 @@ namespace api.Endpoints
 
         public override async Task HandleAsync(AddUserRequest req, CancellationToken ct)
         {
-            var hashedPassword = Crypto.HashPassword(req.Password);
+            var hashedPassword = Crypto
+                .HashPassword(req.Password)
+                .Truncate(Models.User.PasswordHashMaxLength);
 
             var user = new User(req.Id, req.EmailAddress, hashedPassword);
 
