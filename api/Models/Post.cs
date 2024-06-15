@@ -1,4 +1,4 @@
-﻿using api.Interfaces;
+﻿using api.Shared.Interfaces;
 
 namespace api.Models
 {

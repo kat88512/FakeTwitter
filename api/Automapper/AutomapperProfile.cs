@@ -1,8 +1,9 @@
-﻿using api.Models;
-using api.ResponseModels;
+﻿using api.Features.Posts;
+using api.Features.Users;
+using api.Models;
 using AutoMapper;
 
-namespace api.Config
+namespace api.Automapper
 {
     public class AutomapperProfile : Profile
     {

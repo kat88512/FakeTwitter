@@ -1,5 +1,5 @@
-﻿using api.Configuration;
-using api.Interfaces;
+﻿using api.Shared;
+using api.Shared.Interfaces;
 
 namespace api.Models
 {
