@@ -1,8 +1,9 @@
 global using FluentValidation;
-using api.Data;
-using api.Interfaces;
+using api.Database;
+using api.Features.Posts;
+using api.Features.Users;
 using api.Models;
-using api.Repositories;
+using api.Shared.Interfaces;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
@@ -22,4 +23,5 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 app.UseFastEndpoints().UseSwaggerGen();
+
 app.Run();
