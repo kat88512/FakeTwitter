@@ -1,4 +1,5 @@
 global using FluentValidation;
+using api.Authentication;
 using api.Database;
 using api.Features.Posts;
 using api.Features.Users;
@@ -15,6 +16,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.SectionName));
 
 builder.Services.AddScoped<IRepository<Post, Guid>, PostRepository>();
 builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
