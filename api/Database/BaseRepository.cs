@@ -1,7 +1,7 @@
 ﻿using api.Shared.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Shared.Repositories
+namespace api.Database
 {
     public abstract class BaseRepository<TEntity, TId> : IRepository<TEntity, TId>
         where TEntity : class, IAggregateRoot<TId>

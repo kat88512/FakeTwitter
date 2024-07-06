@@ -1,6 +1,6 @@
-﻿using api.Models;
+﻿using api.Database;
+using api.Models;
 using api.Shared.Extensions;
-using api.Shared.Interfaces;
 using CryptoHelper;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;

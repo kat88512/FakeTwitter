@@ -1,6 +1,5 @@
 ﻿using api.Database;
 using api.Models;
-using api.Shared.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Features.Posts

@@ -1,6 +1,5 @@
 ﻿using api.Database;
 using api.Models;
-using api.Shared.Repositories;
 
 namespace api.Features.Users
 {

@@ -1,10 +1,9 @@
 global using FluentValidation;
-using api.Authentication;
+using api.Configuration.Options;
 using api.Database;
 using api.Features.Posts;
 using api.Features.Users;
 using api.Models;
-using api.Shared.Interfaces;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;

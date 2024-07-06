@@ -1,5 +1,5 @@
-﻿using api.Models;
-using api.Shared.Interfaces;
+﻿using api.Database;
+using api.Models;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 

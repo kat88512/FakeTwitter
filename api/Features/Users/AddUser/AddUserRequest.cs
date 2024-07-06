@@ -1,9 +1,7 @@
 ﻿using api.Database;
 using api.Models;
 using api.Shared;
-using api.Shared.Interfaces;
 using FastEndpoints;
-using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Features.Users.AddUser
