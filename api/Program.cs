@@ -4,6 +4,7 @@ using api.Database;
 using api.Features.Posts;
 using api.Features.Users;
 using api.Models;
+using api.Services.PasswordHasher;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.SectionName));
 
+builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IRepository<Post, Guid>, PostRepository>();
 builder.Services.AddScoped<IRepository<User, Guid>, UserRepository>();
 
