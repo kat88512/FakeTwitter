@@ -18,7 +18,6 @@ namespace api.Features.Posts.AddPost
         public override void Configure()
         {
             Post("/api/posts");
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(AddPostRequest req, CancellationToken ct)

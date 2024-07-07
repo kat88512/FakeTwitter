@@ -5,11 +5,19 @@ using api.Features.Posts;
 using api.Features.Users;
 using api.Services.PasswordHasher;
 using FastEndpoints;
+using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder();
-builder.Services.AddFastEndpoints().SwaggerDocument();
+
+var jwtOptions = builder.Configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>();
+
+builder
+    .Services.AddAuthenticationJwtBearer(s => s.SigningKey = jwtOptions!.Key)
+    .AddAuthorization()
+    .AddFastEndpoints()
+    .SwaggerDocument();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -25,6 +33,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
-app.UseFastEndpoints().UseSwaggerGen();
+
+app.UseAuthentication().UseAuthorization().UseFastEndpoints().UseSwaggerGen();
 
 app.Run();
