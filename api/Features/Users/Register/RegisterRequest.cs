@@ -4,9 +4,9 @@ using FastEndpoints;
 
 namespace api.Features.Users.AddUser
 {
-    public class AddUserValidator : Validator<AddUserRequest>
+    public class RegisterValidator : Validator<RegisterRequest>
     {
-        public AddUserValidator()
+        public RegisterValidator()
         {
             RuleFor(u => u.EmailAddress)
                 .NotEmpty()
@@ -40,7 +40,7 @@ namespace api.Features.Users.AddUser
         }
     };
 
-    public class AddUserRequest
+    public class RegisterRequest
     {
         public Guid Id { get; set; }
         public string EmailAddress { get; set; } = string.Empty;

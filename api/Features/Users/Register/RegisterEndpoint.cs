@@ -5,13 +5,13 @@ using IMapper = AutoMapper.IMapper;
 
 namespace api.Features.Users.AddUser
 {
-    public class AddUserEndpoint : Endpoint<AddUserRequest, UserDTO>
+    public class RegisterEndpoint : Endpoint<RegisterRequest, UserDTO>
     {
         private readonly IUserRepository _users;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher _passwordHasher;
 
-        public AddUserEndpoint(
+        public RegisterEndpoint(
             IUserRepository users,
             IMapper mapper,
             IPasswordHasher passwordHasher
@@ -28,7 +28,7 @@ namespace api.Features.Users.AddUser
             AllowAnonymous();
         }
 
-        public override async Task HandleAsync(AddUserRequest req, CancellationToken ct)
+        public override async Task HandleAsync(RegisterRequest req, CancellationToken ct)
         {
             var hashedPassword = _passwordHasher.HashPassword(req.Password);
 
