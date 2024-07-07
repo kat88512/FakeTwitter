@@ -1,7 +1,5 @@
-﻿using api.Database;
-using api.Models;
+﻿using api.Models;
 using FastEndpoints;
-using FluentValidation;
 
 namespace api.Features.Posts.AddPost
 {
@@ -15,7 +13,7 @@ namespace api.Features.Posts.AddPost
                 .MustAsync(
                     async (id, ct) =>
                     {
-                        var posts = Resolve<IRepository<Post, Guid>>();
+                        var posts = Resolve<IPostRepository>();
                         var exists = await posts.CheckIfExistsAsync(id);
 
                         return !exists;

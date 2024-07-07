@@ -1,5 +1,4 @@
-﻿using api.Database;
-using api.Models;
+﻿using api.Models;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
@@ -7,10 +6,10 @@ namespace api.Features.Posts.AddPost
 {
     public class AddPostEndpoint : Endpoint<AddPostRequest, PostDTO>
     {
-        private readonly IRepository<Post, Guid> _posts;
+        private readonly IPostRepository _posts;
         private readonly IMapper _mapper;
 
-        public AddPostEndpoint(IRepository<Post, Guid> posts, IMapper mapper)
+        public AddPostEndpoint(IPostRepository posts, IMapper mapper)
         {
             _posts = posts;
             _mapper = mapper;

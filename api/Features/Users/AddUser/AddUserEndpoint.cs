@@ -1,5 +1,4 @@
-﻿using api.Database;
-using api.Models;
+﻿using api.Models;
 using api.Services.PasswordHasher;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
@@ -8,12 +7,12 @@ namespace api.Features.Users.AddUser
 {
     public class AddUserEndpoint : Endpoint<AddUserRequest, UserDTO>
     {
-        private readonly IRepository<User, Guid> _users;
+        private readonly IUserRepository _users;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher _passwordHasher;
 
         public AddUserEndpoint(
-            IRepository<User, Guid> users,
+            IUserRepository users,
             IMapper mapper,
             IPasswordHasher passwordHasher
         )

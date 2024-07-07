@@ -1,8 +1,6 @@
-﻿using api.Database;
-using api.Models;
+﻿using api.Models;
 using api.Shared;
 using FastEndpoints;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Features.Users.AddUser
 {
@@ -17,11 +15,8 @@ namespace api.Features.Users.AddUser
                 .MustAsync(
                     async (email, ct) =>
                     {
-                        var context = Resolve<ApplicationDbContext>();
-                        var exists = await context.Users.AnyAsync(
-                            u => u.EmailAddress == email,
-                            cancellationToken: ct
-                        );
+                        var users = Resolve<IUserRepository>();
+                        var exists = await users.CheckIfExistsAsync(email);
 
                         return !exists;
                     }
@@ -36,7 +31,7 @@ namespace api.Features.Users.AddUser
                 .MustAsync(
                     async (id, ct) =>
                     {
-                        var users = Resolve<IRepository<User, Guid>>();
+                        var users = Resolve<IUserRepository>();
                         var exists = await users.CheckIfExistsAsync(id);
 
                         return !exists;
