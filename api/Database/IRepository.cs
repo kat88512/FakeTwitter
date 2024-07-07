@@ -8,6 +8,7 @@ namespace api.Database
     {
         Task AddAsync(TEntity entity);
         Task<bool> CheckIfExistsAsync(TId id);
+        Task<IEnumerable<TEntity>> GetAllAsync();
         Task DeleteAsync(TEntity entity);
         Task<TEntity?> GetByIdAsync(TId id);
         Task UpdateAsync(TEntity entity);

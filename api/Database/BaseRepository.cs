@@ -33,6 +33,11 @@ namespace api.Database
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        {
+            return await _dbSet.ToListAsync();
+        }
+
         public virtual async Task<TEntity?> GetByIdAsync(TId id)
         {
             return await _dbSet.FirstOrDefaultAsync(e => e.Id.Equals(id));
