@@ -28,6 +28,8 @@ namespace api.Database
 
                 b.Property(e => e.Id).ValueGeneratedNever();
 
+                b.Property(e => e.UserId).ValueGeneratedNever();
+
                 b.Property(e => e.Text).HasMaxLength(Post.TextMaxLength);
             });
         }

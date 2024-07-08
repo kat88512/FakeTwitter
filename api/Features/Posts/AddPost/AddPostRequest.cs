@@ -1,4 +1,5 @@
-﻿using api.Models;
+﻿using System.IdentityModel.Tokens.Jwt;
+using api.Models;
 using FastEndpoints;
 
 namespace api.Features.Posts.AddPost
@@ -24,6 +25,8 @@ namespace api.Features.Posts.AddPost
 
     public class AddPostRequest
     {
+        [FromClaim(JwtRegisteredClaimNames.Sub)]
+        public Guid UserId { get; set; }
         public Guid Id { get; set; }
         public string Text { get; set; } = string.Empty;
     }

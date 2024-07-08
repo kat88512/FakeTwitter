@@ -22,7 +22,7 @@ namespace api.Features.Posts.AddPost
 
         public override async Task HandleAsync(AddPostRequest req, CancellationToken ct)
         {
-            var post = new Post(req.Id, req.Text);
+            var post = new Post(req.Id, req.UserId, req.Text);
 
             await _posts.AddAsync(post);
 

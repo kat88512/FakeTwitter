@@ -1,4 +1,5 @@
-﻿using api.Configuration.Options;
+﻿using System.IdentityModel.Tokens.Jwt;
+using api.Configuration.Options;
 using api.Features.Users;
 using api.Features.Users.Login;
 using api.Services.PasswordHasher;
@@ -46,7 +47,7 @@ namespace Features.Users.Login
                 {
                     o.SigningKey = _jwtOptions.Key;
                     o.ExpireAt = DateTime.UtcNow.AddMinutes(_jwtOptions.ExpirationPeriodInMinutes);
-                    o.User.Claims.Add(("EmailAddress", req.EmailAddress));
+                    o.User.Claims.Add((JwtRegisteredClaimNames.Sub, user.Id.ToString()));
                 });
 
                 await SendAsync(new { req.EmailAddress, Token = jwtToken });
