@@ -1,6 +1,4 @@
-﻿using api.Models;
-using api.Shared.Extensions;
-using CryptoHelper;
+﻿using CryptoHelper;
 
 namespace api.Services.PasswordHasher
 {
@@ -8,14 +6,12 @@ namespace api.Services.PasswordHasher
     {
         public string HashPassword(string password)
         {
-            return Crypto.HashPassword(password).Truncate(User.PasswordHashMaxLength);
+            return Crypto.HashPassword(password);
         }
 
         public bool VerifyPassword(string hash, string password)
         {
-            var truncatedHash = hash.Truncate(User.PasswordHashMaxLength);
-
-            return Crypto.VerifyHashedPassword(truncatedHash, password);
+            return Crypto.VerifyHashedPassword(hash, password);
         }
     }
 }
