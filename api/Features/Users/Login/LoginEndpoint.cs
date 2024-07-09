@@ -50,7 +50,7 @@ namespace Features.Users.Login
                     o.User.Claims.Add((JwtRegisteredClaimNames.Sub, user.Id.ToString()));
                 });
 
-                await SendAsync(new { req.EmailAddress, Token = jwtToken });
+                await SendAsync(new { req.EmailAddress, Token = jwtToken }, cancellation: ct);
             }
             else
                 ThrowError("The supplied credentials are invalid!");
