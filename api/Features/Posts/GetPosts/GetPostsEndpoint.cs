@@ -5,10 +5,10 @@ namespace api.Features.Posts.GetPosts
 {
     public class GetPostsEndpoint : EndpointWithoutRequest<IEnumerable<PostDTO>>
     {
-        private readonly IPostRepository _posts;
+        private readonly PostRepository _posts;
         private readonly IMapper _mapper;
 
-        public GetPostsEndpoint(IPostRepository posts, IMapper mapper)
+        public GetPostsEndpoint(PostRepository posts, IMapper mapper)
         {
             _posts = posts;
             _mapper = mapper;

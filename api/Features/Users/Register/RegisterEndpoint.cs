@@ -7,12 +7,12 @@ namespace api.Features.Users.AddUser
 {
     public class RegisterEndpoint : Endpoint<RegisterRequest, UserDTO>
     {
-        private readonly IUserRepository _users;
+        private readonly UserRepository _users;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher _passwordHasher;
 
         public RegisterEndpoint(
-            IUserRepository users,
+            UserRepository users,
             IMapper mapper,
             IPasswordHasher passwordHasher
         )

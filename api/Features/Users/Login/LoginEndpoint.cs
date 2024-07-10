@@ -13,12 +13,12 @@ namespace Features.Users.Login
     {
         private readonly JwtOptions _jwtOptions;
         private readonly IPasswordHasher _passwordHasher;
-        private readonly IUserRepository _users;
+        private readonly UserRepository _users;
 
         public LoginEndpoint(
             IOptions<JwtOptions> jwtOptions,
             IPasswordHasher passwordHasher,
-            IUserRepository users
+            UserRepository users
         )
         {
             _jwtOptions = jwtOptions.Value;

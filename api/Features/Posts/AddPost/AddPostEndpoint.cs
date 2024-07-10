@@ -6,10 +6,10 @@ namespace api.Features.Posts.AddPost
 {
     public class AddPostEndpoint : Endpoint<AddPostRequest, PostDTO>
     {
-        private readonly IPostRepository _posts;
+        private readonly PostRepository _posts;
         private readonly IMapper _mapper;
 
-        public AddPostEndpoint(IPostRepository posts, IMapper mapper)
+        public AddPostEndpoint(PostRepository posts, IMapper mapper)
         {
             _posts = posts;
             _mapper = mapper;

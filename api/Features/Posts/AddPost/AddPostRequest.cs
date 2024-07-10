@@ -14,7 +14,7 @@ namespace api.Features.Posts.AddPost
                 .MustAsync(
                     async (id, ct) =>
                     {
-                        var posts = Resolve<IPostRepository>();
+                        var posts = Resolve<PostRepository>();
                         var exists = await posts.CheckIfExistsAsync(id);
 
                         return !exists;

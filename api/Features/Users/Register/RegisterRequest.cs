@@ -15,7 +15,7 @@ namespace api.Features.Users.AddUser
                 .MustAsync(
                     async (email, ct) =>
                     {
-                        var users = Resolve<IUserRepository>();
+                        var users = Resolve<UserRepository>();
                         var exists = await users.CheckIfExistsAsync(email);
 
                         return !exists;
@@ -31,7 +31,7 @@ namespace api.Features.Users.AddUser
                 .MustAsync(
                     async (id, ct) =>
                     {
-                        var users = Resolve<IUserRepository>();
+                        var users = Resolve<UserRepository>();
                         var exists = await users.CheckIfExistsAsync(id);
 
                         return !exists;
