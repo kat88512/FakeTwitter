@@ -43,8 +43,6 @@ namespace api.Database
                 b.Property(e => e.Id).ValueGeneratedNever();
 
                 b.Property(e => e.EmailAddress).HasMaxLength(StringLengths.MediumString);
-
-                b.Property(e => e.PasswordHash).HasMaxLength(User.PasswordHashMaxLength);
             });
         }
     }
