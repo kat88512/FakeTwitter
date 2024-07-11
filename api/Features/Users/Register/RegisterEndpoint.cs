@@ -1,21 +1,25 @@
 ﻿using api.Models;
-using api.Shared.Extensions;
-using api.Shared.Interfaces;
-using CryptoHelper;
+using api.Services.PasswordHasher;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
 namespace api.Features.Users.AddUser
 {
-    public class AddUserEndpoint : Endpoint<AddUserRequest, UserDTO>
+    public class RegisterEndpoint : Endpoint<RegisterRequest, UserDTO>
     {
-        private readonly IRepository<User, Guid> _users;
+        private readonly UserRepository _users;
         private readonly IMapper _mapper;
+        private readonly IPasswordHasher _passwordHasher;
 
-        public AddUserEndpoint(IRepository<User, Guid> users, IMapper mapper)
+        public RegisterEndpoint(
+            UserRepository users,
+            IMapper mapper,
+            IPasswordHasher passwordHasher
+        )
         {
             _users = users;
             _mapper = mapper;
+            _passwordHasher = passwordHasher;
         }
 
         public override void Configure()
@@ -24,11 +28,9 @@ namespace api.Features.Users.AddUser
             AllowAnonymous();
         }
 
-        public override async Task HandleAsync(AddUserRequest req, CancellationToken ct)
+        public override async Task HandleAsync(RegisterRequest req, CancellationToken ct)
         {
-            var hashedPassword = Crypto
-                .HashPassword(req.Password)
-                .Truncate(Models.User.PasswordHashMaxLength);
+            var hashedPassword = _passwordHasher.HashPassword(req.Password);
 
             var user = new User(req.Id, req.EmailAddress, hashedPassword);
 

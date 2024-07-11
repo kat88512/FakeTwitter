@@ -1,16 +1,12 @@
-﻿using api.Database;
-using api.Models;
+﻿using api.Models;
 using api.Shared;
-using api.Shared.Interfaces;
 using FastEndpoints;
-using FluentValidation;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Features.Users.AddUser
 {
-    public class AddUserValidator : Validator<AddUserRequest>
+    public class RegisterValidator : Validator<RegisterRequest>
     {
-        public AddUserValidator()
+        public RegisterValidator()
         {
             RuleFor(u => u.EmailAddress)
                 .NotEmpty()
@@ -19,11 +15,8 @@ namespace api.Features.Users.AddUser
                 .MustAsync(
                     async (email, ct) =>
                     {
-                        var context = Resolve<ApplicationDbContext>();
-                        var exists = await context.Users.AnyAsync(
-                            u => u.EmailAddress == email,
-                            cancellationToken: ct
-                        );
+                        var users = Resolve<UserRepository>();
+                        var exists = await users.CheckIfExistsAsync(email);
 
                         return !exists;
                     }
@@ -38,7 +31,7 @@ namespace api.Features.Users.AddUser
                 .MustAsync(
                     async (id, ct) =>
                     {
-                        var users = Resolve<IRepository<User, Guid>>();
+                        var users = Resolve<UserRepository>();
                         var exists = await users.CheckIfExistsAsync(id);
 
                         return !exists;
@@ -47,7 +40,7 @@ namespace api.Features.Users.AddUser
         }
     };
 
-    public class AddUserRequest
+    public class RegisterRequest
     {
         public Guid Id { get; set; }
         public string EmailAddress { get; set; } = string.Empty;

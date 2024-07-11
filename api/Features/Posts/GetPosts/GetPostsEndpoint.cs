@@ -1,18 +1,16 @@
-﻿using api.Database;
-using FastEndpoints;
-using Microsoft.EntityFrameworkCore;
+﻿using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
 namespace api.Features.Posts.GetPosts
 {
     public class GetPostsEndpoint : EndpointWithoutRequest<IEnumerable<PostDTO>>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly PostRepository _posts;
         private readonly IMapper _mapper;
 
-        public GetPostsEndpoint(ApplicationDbContext context, IMapper mapper)
+        public GetPostsEndpoint(PostRepository posts, IMapper mapper)
         {
-            _context = context;
+            _posts = posts;
             _mapper = mapper;
         }
 
@@ -24,7 +22,7 @@ namespace api.Features.Posts.GetPosts
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            var posts = await _context.Posts.ToListAsync(cancellationToken: ct);
+            var posts = await _posts.GetAllAsync();
 
             var postsDTO = _mapper.Map<IEnumerable<PostDTO>>(posts);
 

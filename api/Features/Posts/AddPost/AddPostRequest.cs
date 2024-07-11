@@ -1,7 +1,6 @@
-﻿using api.Models;
-using api.Shared.Interfaces;
+﻿using System.IdentityModel.Tokens.Jwt;
+using api.Models;
 using FastEndpoints;
-using FluentValidation;
 
 namespace api.Features.Posts.AddPost
 {
@@ -15,7 +14,7 @@ namespace api.Features.Posts.AddPost
                 .MustAsync(
                     async (id, ct) =>
                     {
-                        var posts = Resolve<IRepository<Post, Guid>>();
+                        var posts = Resolve<PostRepository>();
                         var exists = await posts.CheckIfExistsAsync(id);
 
                         return !exists;
@@ -26,6 +25,8 @@ namespace api.Features.Posts.AddPost
 
     public class AddPostRequest
     {
+        [FromClaim(JwtRegisteredClaimNames.Sub)]
+        public Guid UserId { get; set; }
         public Guid Id { get; set; }
         public string Text { get; set; } = string.Empty;
     }

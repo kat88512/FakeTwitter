@@ -3,7 +3,7 @@ using api.Features.Users;
 using api.Models;
 using AutoMapper;
 
-namespace api.Automapper
+namespace api.Configuration.Automapper
 {
     public class AutomapperProfile : Profile
     {

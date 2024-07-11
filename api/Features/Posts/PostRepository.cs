@@ -1,7 +1,5 @@
 ﻿using api.Database;
 using api.Models;
-using api.Shared.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Features.Posts
 {
@@ -9,10 +7,5 @@ namespace api.Features.Posts
     {
         public PostRepository(ApplicationDbContext context)
             : base(context) { }
-
-        public async Task<IEnumerable<Post>> GetAllAsync()
-        {
-            return await _dbSet.ToListAsync();
-        }
     }
 }
