@@ -18,6 +18,7 @@ namespace api.Database
 
             ConfigurePosts(builder);
             ConfigureUsers(builder);
+            ConfigureFollows(builder);
         }
 
         private static void ConfigurePosts(ModelBuilder builder)
@@ -43,6 +44,17 @@ namespace api.Database
                 b.Property(e => e.Id).ValueGeneratedNever();
 
                 b.Property(e => e.EmailAddress).HasMaxLength(StringLengths.MediumString);
+            });
+        }
+
+        private static void ConfigureFollows(ModelBuilder builder)
+        {
+            builder.Entity<Follow>(b =>
+            {
+                b.HasKey(e => new { e.FollowerId, e.FollowedUserId });
+
+                b.Property(e => e.FollowerId).ValueGeneratedNever();
+                b.Property(e => e.FollowedUserId).ValueGeneratedNever();
             });
         }
     }
