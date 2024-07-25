@@ -48,7 +48,7 @@ namespace api.Features.Feed
                             User = _mapper.Map<UserDTO>(u)
                         }
                 )
-                .ToListAsync();
+                .ToListAsync(cancellationToken: ct);
 
             await SendAsync(postsWithUsersDTO, cancellation: ct);
         }
