@@ -8,6 +8,7 @@ namespace api.Database
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Follow> Follows { get; set; }
 
         public ApplicationDbContext(DbContextOptions dbContextOptions)
             : base(dbContextOptions) { }
