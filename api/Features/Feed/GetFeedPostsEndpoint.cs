@@ -7,7 +7,8 @@ using IMapper = AutoMapper.IMapper;
 
 namespace api.Features.Feed
 {
-    public class GetFeedPostsEndpoint : Endpoint<GetFeedPostsRequest, List<PostWithUserDetailsDTO>>
+    public class GetFeedPostsEndpoint
+        : Endpoint<GetFeedPostsRequest, IEnumerable<PostWithUserDetailsDTO>>
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
