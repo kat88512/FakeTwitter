@@ -4,33 +4,26 @@ using IMapper = AutoMapper.IMapper;
 
 namespace api.Features.Users.UserDetails
 {
-    public class GetUserPostsEndpoint : EndpointWithoutRequest<List<PostDTO>>
+    public class GetUserPostsEndpoint : Endpoint<GetUserPostsRequest, List<PostDTO>>
     {
         private readonly PostRepository _posts;
-        private readonly UserRepository _users;
         private readonly IMapper _mapper;
 
-        public GetUserPostsEndpoint(PostRepository posts, UserRepository users, IMapper mapper)
+        public GetUserPostsEndpoint(PostRepository posts, IMapper mapper)
         {
             _posts = posts;
-            _users = users;
             _mapper = mapper;
         }
 
         public override void Configure()
         {
-            Get("api/users/{userId}/posts");
+            Get("api/users/{UserId}/posts");
             AllowAnonymous();
         }
 
-        public override async Task HandleAsync(CancellationToken ct)
+        public override async Task HandleAsync(GetUserPostsRequest req, CancellationToken ct)
         {
-            var userId = Route<Guid>("userId");
-
-            if (!await _users.CheckIfExistsAsync(userId))
-            {
-                ThrowError("User does not exist");
-            }
+            var userId = req.UserId;
 
             var posts = await _posts.GetAllAsync(userId);
 
