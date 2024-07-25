@@ -1,6 +1,7 @@
 global using FluentValidation;
 using api.Configuration.Options;
 using api.Database;
+using api.Features.Follows;
 using api.Features.Posts;
 using api.Features.Users;
 using api.Services.PasswordHasher;
@@ -29,6 +30,7 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptio
 builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<PostRepository>();
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<FollowRepository>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

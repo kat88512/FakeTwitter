@@ -1,4 +1,5 @@
-﻿using api.Features.Posts;
+﻿using api.Features.Follows;
+using api.Features.Posts;
 using api.Features.Users;
 using api.Models;
 using AutoMapper;
@@ -11,6 +12,7 @@ namespace api.Configuration.Automapper
         {
             CreateMap<Post, PostDTO>();
             CreateMap<User, UserDTO>();
+            CreateMap<Follow, FollowDTO>();
         }
     }
 }
