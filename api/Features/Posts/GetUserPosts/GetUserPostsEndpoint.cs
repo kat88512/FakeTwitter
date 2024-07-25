@@ -1,8 +1,7 @@
-﻿using api.Features.Posts;
-using FastEndpoints;
+﻿using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
-namespace api.Features.Users.UserDetails
+namespace api.Features.Posts.GetUserPosts
 {
     public class GetUserPostsEndpoint : Endpoint<GetUserPostsRequest, List<PostDTO>>
     {

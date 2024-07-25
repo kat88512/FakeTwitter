@@ -1,6 +1,7 @@
-﻿using FastEndpoints;
+﻿using api.Features.Users;
+using FastEndpoints;
 
-namespace api.Features.Users.UserDetails
+namespace api.Features.Posts.GetUserPosts
 {
     public class GetUserPostsValidator : Validator<GetUserPostsRequest>
     {
