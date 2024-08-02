@@ -3,7 +3,7 @@ using api.Services.PasswordHasher;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
-namespace api.Features.Users.AddUser
+namespace api.Features.Users.Register
 {
     public class RegisterEndpoint : Endpoint<RegisterRequest, UserDTO>
     {

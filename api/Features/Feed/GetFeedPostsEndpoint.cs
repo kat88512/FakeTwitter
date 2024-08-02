@@ -1,17 +1,19 @@
 ﻿using api.Database;
+using api.Features.Posts;
 using api.Features.Users;
 using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
 using IMapper = AutoMapper.IMapper;
 
-namespace api.Features.Posts.GetPosts
+namespace api.Features.Feed
 {
-    public class GetPostsEndpoint : EndpointWithoutRequest<IEnumerable<PostWithUserDetailsDTO>>
+    public class GetFeedPostsEndpoint
+        : Endpoint<GetFeedPostsRequest, IEnumerable<PostWithUserDetailsDTO>>
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetPostsEndpoint(ApplicationDbContext context, IMapper mapper)
+        public GetFeedPostsEndpoint(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -19,14 +21,22 @@ namespace api.Features.Posts.GetPosts
 
         public override void Configure()
         {
-            Get("/api/posts");
-            AllowAnonymous();
+            Get("/api/feed");
         }
 
-        public override async Task HandleAsync(CancellationToken ct)
+        public override async Task HandleAsync(GetFeedPostsRequest req, CancellationToken ct)
         {
-            var postsWithUsersDTO = await _context
-                .Posts.Join(
+            var followedUsersIds = _context
+                .Follows.Where(f => f.FollowerId == req.UserId)
+                .Select(f => f.FollowedUserId);
+
+            //Future potential for taking first n results here/pagination
+            var posts = _context
+                .Posts.Join(followedUsersIds, p => p.UserId, uid => uid, (p, _) => p)
+                .OrderByDescending(p => p.DateCreated);
+
+            var postsWithUsersDTO = await posts
+                .Join(
                     _context.Users,
                     p => p.UserId,
                     u => u.Id,

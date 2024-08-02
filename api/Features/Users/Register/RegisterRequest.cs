@@ -2,7 +2,7 @@
 using api.Shared;
 using FastEndpoints;
 
-namespace api.Features.Users.AddUser
+namespace api.Features.Users.Register
 {
     public class RegisterValidator : Validator<RegisterRequest>
     {

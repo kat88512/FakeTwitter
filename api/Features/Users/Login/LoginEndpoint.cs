@@ -1,13 +1,11 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using api.Configuration.Options;
-using api.Features.Users;
-using api.Features.Users.Login;
 using api.Services.PasswordHasher;
 using FastEndpoints;
 using FastEndpoints.Security;
 using Microsoft.Extensions.Options;
 
-namespace Features.Users.Login
+namespace api.Features.Users.Login
 {
     public class LoginEndpoint : Endpoint<LoginRequest>
     {
