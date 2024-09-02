@@ -1,10 +1,10 @@
 global using FluentValidation;
-using api.Configuration.Options;
-using api.Database;
-using api.Features.Follows;
-using api.Features.Posts;
-using api.Features.Users;
-using api.Services.PasswordHasher;
+using Api.Configuration.Options;
+using Api.Database;
+using Api.Features.Follows;
+using Api.Features.Posts;
+using Api.Features.Users;
+using Api.Services.PasswordHasher;
 using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;

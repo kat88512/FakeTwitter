@@ -1,6 +1,6 @@
-﻿using api.Features.Users;
+﻿using Api.Features.Users;
 
-namespace api.Features.Posts
+namespace Api.Features.Posts
 {
     public class PostWithUserDetailsDTO
     {

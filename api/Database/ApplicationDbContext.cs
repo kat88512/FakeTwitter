@@ -1,8 +1,8 @@
-﻿using api.Models;
-using api.Shared;
+﻿using Api.Models;
+using Api.Shared;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Database
+namespace Api.Database
 {
     public class ApplicationDbContext : DbContext
     {

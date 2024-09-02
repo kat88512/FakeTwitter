@@ -1,10 +1,10 @@
-﻿using api.Features.Follows;
-using api.Features.Posts;
-using api.Features.Users;
-using api.Models;
+﻿using Api.Features.Follows;
+using Api.Features.Posts;
+using Api.Features.Users;
+using Api.Models;
 using AutoMapper;
 
-namespace api.Configuration.Automapper
+namespace Api.Configuration.Automapper
 {
     public class AutomapperProfile : Profile
     {

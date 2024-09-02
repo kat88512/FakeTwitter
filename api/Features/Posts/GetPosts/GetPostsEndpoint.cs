@@ -1,10 +1,10 @@
-﻿using api.Database;
-using api.Features.Users;
+﻿using Api.Database;
+using Api.Features.Users;
 using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
 using IMapper = AutoMapper.IMapper;
 
-namespace api.Features.Posts.GetPosts
+namespace Api.Features.Posts.GetPosts
 {
     public class GetPostsEndpoint : EndpointWithoutRequest<IEnumerable<PostWithUserDetailsDTO>>
     {

@@ -1,4 +1,4 @@
-﻿namespace api.Shared.Extensions
+﻿namespace Api.Shared.Extensions
 {
     public static class StringExtensions
     {

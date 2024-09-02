@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace api.Database.Migrations
+namespace Api.Database.Migrations
 {
     /// <inheritdoc />
     public partial class AddUserIdToPost : Migration

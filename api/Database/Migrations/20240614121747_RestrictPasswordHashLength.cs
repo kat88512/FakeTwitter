@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace api.Migrations
+namespace Api.Migrations
 {
     /// <inheritdoc />
     public partial class RestrictPasswordHashLength : Migration
@@ -17,7 +17,8 @@ namespace api.Migrations
                 maxLength: 250,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(max)"
+            );
         }
 
         /// <inheritdoc />
@@ -30,7 +31,8 @@ namespace api.Migrations
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(250)",
-                oldMaxLength: 250);
+                oldMaxLength: 250
+            );
         }
     }
 }

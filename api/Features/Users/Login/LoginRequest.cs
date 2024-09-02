@@ -1,7 +1,7 @@
-﻿using api.Shared;
+﻿using Api.Shared;
 using FastEndpoints;
 
-namespace api.Features.Users.Login
+namespace Api.Features.Users.Login
 {
     public class LoginValidator : Validator<LoginRequest>
     {

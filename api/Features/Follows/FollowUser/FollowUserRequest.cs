@@ -1,8 +1,8 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using api.Features.Users;
+using Api.Features.Users;
 using FastEndpoints;
 
-namespace api.Features.Follows.FollowUser
+namespace Api.Features.Follows.FollowUser
 {
     public class FollowUserValidator : Validator<FollowUserRequest>
     {

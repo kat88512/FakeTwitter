@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace api.Database.Migrations
+namespace Api.Database.Migrations
 {
     /// <inheritdoc />
     public partial class AddFollows : Migration
@@ -21,14 +21,14 @@ namespace api.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Follow", x => new { x.FollowerId, x.FollowedUserId });
-                });
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Follow");
+            migrationBuilder.DropTable(name: "Follow");
         }
     }
 }

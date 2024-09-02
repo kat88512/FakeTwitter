@@ -1,8 +1,8 @@
-﻿using api.Database;
-using api.Models;
+﻿using Api.Database;
+using Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Features.Posts
+namespace Api.Features.Posts
 {
     public class PostRepository : BaseRepository<Post, Guid>
     {

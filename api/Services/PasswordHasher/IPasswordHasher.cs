@@ -1,4 +1,4 @@
-﻿namespace api.Services.PasswordHasher
+﻿namespace Api.Services.PasswordHasher
 {
     public interface IPasswordHasher
     {

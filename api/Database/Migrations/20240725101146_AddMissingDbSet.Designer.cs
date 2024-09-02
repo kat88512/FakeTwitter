@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using api.Database;
+using Api.Database;
 
 #nullable disable
 
-namespace api.Database.Migrations
+namespace Api.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240725101146_AddMissingDbSet")]

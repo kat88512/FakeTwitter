@@ -1,8 +1,8 @@
-﻿using api.Database;
-using api.Models;
+﻿using Api.Database;
+using Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Features.Follows
+namespace Api.Features.Follows
 {
     public class FollowRepository : BaseRepository<Follow, (Guid, Guid)>
     {

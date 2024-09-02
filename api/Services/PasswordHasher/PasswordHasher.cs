@@ -1,6 +1,6 @@
 ﻿using CryptoHelper;
 
-namespace api.Services.PasswordHasher
+namespace Api.Services.PasswordHasher
 {
     public class PasswordHasher : IPasswordHasher
     {

@@ -1,4 +1,4 @@
-﻿namespace api.Features.Follows
+﻿namespace Api.Features.Follows
 {
     public class FollowDTO
     {

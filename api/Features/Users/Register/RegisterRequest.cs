@@ -1,8 +1,8 @@
-﻿using api.Models;
-using api.Shared;
+﻿using Api.Models;
+using Api.Shared;
 using FastEndpoints;
 
-namespace api.Features.Users.Register
+namespace Api.Features.Users.Register
 {
     public class RegisterValidator : Validator<RegisterRequest>
     {

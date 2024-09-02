@@ -1,8 +1,8 @@
-﻿using api.Models;
+﻿using Api.Models;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
-namespace api.Features.Posts.AddPost
+namespace Api.Features.Posts.AddPost
 {
     public class AddPostEndpoint : Endpoint<AddPostRequest, PostDTO>
     {

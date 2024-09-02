@@ -1,9 +1,9 @@
-﻿using api.Models;
-using api.Services.PasswordHasher;
+﻿using Api.Models;
+using Api.Services.PasswordHasher;
 using FastEndpoints;
 using IMapper = AutoMapper.IMapper;
 
-namespace api.Features.Users.Register
+namespace Api.Features.Users.Register
 {
     public class RegisterEndpoint : Endpoint<RegisterRequest, UserDTO>
     {

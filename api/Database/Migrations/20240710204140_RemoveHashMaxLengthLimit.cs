@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace api.Database.Migrations
+namespace Api.Database.Migrations
 {
     /// <inheritdoc />
     public partial class RemoveHashMaxLengthLimit : Migration
@@ -17,7 +17,8 @@ namespace api.Database.Migrations
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(250)",
-                oldMaxLength: 250);
+                oldMaxLength: 250
+            );
         }
 
         /// <inheritdoc />
@@ -30,7 +31,8 @@ namespace api.Database.Migrations
                 maxLength: 250,
                 nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(max)"
+            );
         }
     }
 }

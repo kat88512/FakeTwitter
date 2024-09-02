@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using FastEndpoints;
 
-namespace api.Features.Feed
+namespace Api.Features.Feed
 {
     public class GetFeedPostsRequest
     {

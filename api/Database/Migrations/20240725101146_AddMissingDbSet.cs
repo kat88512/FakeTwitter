@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace api.Database.Migrations
+namespace Api.Database.Migrations
 {
     /// <inheritdoc />
     public partial class AddMissingDbSet : Migration
@@ -10,35 +10,29 @@ namespace api.Database.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Follow",
-                table: "Follow");
+            migrationBuilder.DropPrimaryKey(name: "PK_Follow", table: "Follow");
 
-            migrationBuilder.RenameTable(
-                name: "Follow",
-                newName: "Follows");
+            migrationBuilder.RenameTable(name: "Follow", newName: "Follows");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Follows",
                 table: "Follows",
-                columns: new[] { "FollowerId", "FollowedUserId" });
+                columns: new[] { "FollowerId", "FollowedUserId" }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Follows",
-                table: "Follows");
+            migrationBuilder.DropPrimaryKey(name: "PK_Follows", table: "Follows");
 
-            migrationBuilder.RenameTable(
-                name: "Follows",
-                newName: "Follow");
+            migrationBuilder.RenameTable(name: "Follows", newName: "Follow");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Follow",
                 table: "Follow",
-                columns: new[] { "FollowerId", "FollowedUserId" });
+                columns: new[] { "FollowerId", "FollowedUserId" }
+            );
         }
     }
 }

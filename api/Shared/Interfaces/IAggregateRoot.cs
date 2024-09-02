@@ -1,4 +1,4 @@
-﻿namespace api.Shared.Interfaces
+﻿namespace Api.Shared.Interfaces
 {
     public interface IAggregateRoot<TId>
         where TId : struct
