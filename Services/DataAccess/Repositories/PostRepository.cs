@@ -1,8 +1,7 @@
-﻿using Api.Database;
-using Api.Models;
+﻿using Domain.Posts;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Features.Posts
+namespace Services.DataAccess.Repositories
 {
     public class PostRepository : BaseRepository<Post, Guid>
     {

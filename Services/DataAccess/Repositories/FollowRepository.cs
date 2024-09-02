@@ -1,8 +1,7 @@
-﻿using Api.Database;
-using Api.Models;
+﻿using Domain.Follows;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Features.Follows
+namespace Services.DataAccess.Repositories
 {
     public class FollowRepository : BaseRepository<Follow, (Guid, Guid)>
     {

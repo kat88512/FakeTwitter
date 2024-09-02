@@ -1,8 +1,7 @@
-﻿using Api.Database;
-using Api.Models;
+﻿using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Features.Users
+namespace Services.DataAccess.Repositories
 {
     public class UserRepository : BaseRepository<User, Guid>
     {

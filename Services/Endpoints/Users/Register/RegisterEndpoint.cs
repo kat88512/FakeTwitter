@@ -1,9 +1,11 @@
-﻿using Api.Models;
-using Api.Services.PasswordHasher;
-using FastEndpoints;
+﻿using Contracts.Users;
+using Contracts.Users.Register;
+using Domain.Users;
+using Services.DataAccess.Repositories;
+using Services.PasswordHasher;
 using IMapper = AutoMapper.IMapper;
 
-namespace Api.Features.Users.Register
+namespace Services.Endpoints.Users.Register
 {
     public class RegisterEndpoint : Endpoint<RegisterRequest, UserDTO>
     {

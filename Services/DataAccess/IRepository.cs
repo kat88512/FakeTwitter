@@ -1,6 +1,6 @@
-﻿using Api.Shared.Interfaces;
+﻿using Domain;
 
-namespace Api.Database
+namespace Services.DataAccess
 {
     public interface IRepository<TEntity, TId>
         where TEntity : IAggregateRoot<TId>

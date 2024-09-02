@@ -1,8 +1,8 @@
-﻿using Api.Models;
-using FastEndpoints;
+﻿using Contracts.Posts;
+using Services.DataAccess.Repositories;
 using IMapper = AutoMapper.IMapper;
 
-namespace Api.Features.Posts.AddPost
+namespace Services.Endpoints.Posts
 {
     public class AddPostEndpoint : Endpoint<AddPostRequest, PostDTO>
     {

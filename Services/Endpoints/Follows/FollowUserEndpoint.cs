@@ -1,8 +1,9 @@
-﻿using Api.Models;
-using FastEndpoints;
+﻿using Contracts.Follows;
+using Domain.Follows;
+using Services.DataAccess.Repositories;
 using IMapper = AutoMapper.IMapper;
 
-namespace Api.Features.Follows.FollowUser
+namespace Services.Endpoints.Follows
 {
     public class FollowUserEndpoint : Endpoint<FollowUserRequest, FollowDTO>
     {

@@ -1,8 +1,10 @@
-﻿using Api.Models;
-using Api.Shared;
+﻿using Contracts;
+using Domain.Follows;
+using Domain.Posts;
+using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Database
+namespace Services
 {
     public class ApplicationDbContext : DbContext
     {
