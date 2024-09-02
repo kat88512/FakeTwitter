@@ -1,4 +1,5 @@
 ﻿using Contracts.Posts;
+using Domain.Posts;
 using Services.DataAccess.Repositories;
 using IMapper = AutoMapper.IMapper;
 

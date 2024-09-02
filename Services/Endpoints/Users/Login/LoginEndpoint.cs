@@ -1,6 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using Contracts.Users.Login;
 using Microsoft.Extensions.Options;
+using Services.Configuration;
 using Services.DataAccess.Repositories;
 using Services.PasswordHasher;
 

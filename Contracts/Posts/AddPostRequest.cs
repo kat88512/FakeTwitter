@@ -1,26 +1,5 @@
-﻿using Domain.Posts;
-
-namespace Contracts.Posts
+﻿namespace Contracts.Posts
 {
-    public class AddPostValidator : Validator<AddPostRequest>
-    {
-        public AddPostValidator()
-        {
-            RuleFor(p => p.Text).NotEmpty().MaximumLength(Post.TextMaxLength);
-
-            RuleFor(p => p.Id)
-                .MustAsync(
-                    async (id, ct) =>
-                    {
-                        var posts = Resolve<PostRepository>();
-                        var exists = await posts.CheckIfExistsAsync(id);
-
-                        return !exists;
-                    }
-                );
-        }
-    }
-
     public class AddPostRequest
     {
         [FromClaim(JwtRegisteredClaimNames.Sub)]

@@ -1,10 +1,12 @@
-﻿using Api.Features.Follows;
-using Api.Features.Posts;
-using Api.Features.Users;
-using Api.Models;
-using AutoMapper;
+﻿using AutoMapper;
+using Contracts.Follows;
+using Contracts.Posts;
+using Contracts.Users;
+using Domain.Follows;
+using Domain.Posts;
+using Domain.Users;
 
-namespace Api.Configuration.Automapper
+namespace Services.Configuration
 {
     public class AutomapperProfile : Profile
     {

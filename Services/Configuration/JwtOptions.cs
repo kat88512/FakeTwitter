@@ -1,4 +1,4 @@
-﻿namespace Api.Configuration.Options
+﻿namespace Services.Configuration
 {
     public class JwtOptions
     {
