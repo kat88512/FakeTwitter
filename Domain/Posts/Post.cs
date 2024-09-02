@@ -1,6 +1,4 @@
-﻿using Api.Shared.Interfaces;
-
-namespace Api.Models
+﻿namespace Domain.Posts
 {
     public class Post : IAggregateRoot<Guid>
     {

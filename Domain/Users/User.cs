@@ -1,6 +1,4 @@
-﻿using Api.Shared.Interfaces;
-
-namespace Api.Models
+﻿namespace Domain.Users
 {
     public class User : IAggregateRoot<Guid>
     {

@@ -1,6 +1,4 @@
-﻿using Api.Shared.Interfaces;
-
-namespace Api.Models
+﻿namespace Domain.Follows
 {
     public class Follow : IAggregateRoot<(Guid, Guid)>
     {

@@ -1,4 +1,4 @@
-﻿namespace Api.Shared.Interfaces
+﻿namespace Domain
 {
     public interface IAggregateRoot<TId>
         where TId : struct
