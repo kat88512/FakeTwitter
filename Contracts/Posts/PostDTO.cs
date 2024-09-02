@@ -1,4 +1,4 @@
-﻿namespace Api.Features.Posts
+﻿namespace Contracts.Posts
 {
     public class PostDTO
     {

@@ -1,8 +1,6 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using Api.Models;
-using FastEndpoints;
+﻿using Domain.Posts;
 
-namespace Api.Features.Posts.AddPost
+namespace Contracts.Posts
 {
     public class AddPostValidator : Validator<AddPostRequest>
     {

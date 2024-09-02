@@ -1,4 +1,4 @@
-﻿namespace Api.Features.Users
+﻿namespace Contracts.Users
 {
     public class UserDTO
     {

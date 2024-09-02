@@ -1,4 +1,4 @@
-﻿namespace Api.Features.Follows
+﻿namespace Contracts.Follows
 {
     public class FollowDTO
     {

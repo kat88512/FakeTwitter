@@ -1,4 +1,4 @@
-﻿namespace Api.Shared
+﻿namespace Contracts
 {
     public static class StringLengths
     {

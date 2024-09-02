@@ -1,8 +1,6 @@
-﻿using Api.Models;
-using Api.Shared;
-using FastEndpoints;
+﻿using Domain.Users;
 
-namespace Api.Features.Users.Register
+namespace Contracts.Users.Register
 {
     public class RegisterValidator : Validator<RegisterRequest>
     {

@@ -1,7 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using FastEndpoints;
-
-namespace Api.Features.Feed
+﻿namespace Contracts.Feed
 {
     public class GetFeedPostsRequest
     {

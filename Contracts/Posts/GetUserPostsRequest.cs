@@ -1,7 +1,4 @@
-﻿using Api.Features.Users;
-using FastEndpoints;
-
-namespace Api.Features.Posts.GetUserPosts
+﻿namespace Contracts.Posts
 {
     public class GetUserPostsValidator : Validator<GetUserPostsRequest>
     {
