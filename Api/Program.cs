@@ -1,9 +1,9 @@
-using Api;
 using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
 using Services.Configuration;
+using Services.DataAccess;
 using Services.DataAccess.Repositories;
 using Services.PasswordHasher;
 

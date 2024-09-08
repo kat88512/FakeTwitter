@@ -4,7 +4,7 @@ using Domain.Posts;
 using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api
+namespace Services.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {

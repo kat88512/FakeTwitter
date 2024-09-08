@@ -2,6 +2,7 @@
 using Contracts.Posts;
 using Contracts.Users;
 using Microsoft.EntityFrameworkCore;
+using Services.DataAccess;
 using IMapper = AutoMapper.IMapper;
 
 namespace Services.Endpoints.Feed
