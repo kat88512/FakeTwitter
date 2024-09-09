@@ -1,4 +1,4 @@
-﻿namespace Contracts
+﻿namespace Services.Consts
 {
     public static class StringLengths
     {

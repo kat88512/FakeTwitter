@@ -1,8 +1,8 @@
-﻿using Contracts;
-using Domain.Follows;
+﻿using Domain.Follows;
 using Domain.Posts;
 using Domain.Users;
 using Microsoft.EntityFrameworkCore;
+using Services.Consts;
 
 namespace Services.DataAccess
 {

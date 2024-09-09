@@ -1,6 +1,6 @@
-﻿using Contracts;
-using Contracts.Users.Register;
+﻿using Contracts.Users.Register;
 using Domain.Users;
+using Services.Consts;
 using Services.DataAccess.Repositories;
 
 namespace Services.Validators.Users.Register
